@@ -16,7 +16,7 @@ if not exist ".venv\Scripts\python.exe" (
         exit /b 1
     )
 )
-".venv\Scripts\python.exe" -c "import flask, cv2, numpy, PIL; from importlib.util import find_spec; assert all(find_spec(name) for name in ['matplotlib', 'scipy', 'pywt', 'skimage']), 'Chapter dependencies are missing'"
+".venv\Scripts\python.exe" -c "import flask, cv2, numpy, PIL; from importlib.util import find_spec; assert all(find_spec(name) for name in ['matplotlib', 'scipy']), 'Chapter dependencies are missing'"
 if errorlevel 1 (
     ".venv\Scripts\python.exe" -m ensurepip
     ".venv\Scripts\python.exe" -m pip install -r requirements.txt
@@ -29,5 +29,5 @@ echo.
 echo PixelLab is starting at http://127.0.0.1:5000
 echo Keep this window open. Press Ctrl+C to stop the app.
 echo.
-".venv\Scripts\python.exe" "python_code\code_01_web_app.py" --open-browser
+".venv\Scripts\python.exe" "python_code\web_app.py" --open-browser
 pause

@@ -1,0 +1,59 @@
+\begin{spacing}{1.5}
+\section{Overview}
+The project follows an implementation and verification methodology. First, course topics and laboratory examples are represented in a catalog. Second, each retained operation is registered with its parameter schema and source reference. Third, common input and execution routines provide consistent behavior. Finally, exact examples, algorithm properties and application-level tests check the results. The evaluation combines fresh execution checks with separately identified historical platform evidence [5]-[8].
+
+\section{Data Collection and Preprocessing}
+\subsection{Data Sources}
+The materials consist of the included sample image, fixed matrices transcribed into the laboratory implementations, the JSON course catalog, original PDFs and retained screenshots. This is not a supervised learning dataset. There are no class labels, training partitions or learned model weights. Arbitrary user-selected images are supported during normal operation, while exact classroom matrices remain independent of the uploaded image [2,6].
+
+\subsection{Preprocessing Steps}
+The desktop input routine checks that a file is present, decodes it with Pillow, applies EXIF orientation and converts it to RGB before conversion to OpenCV BGR storage. It rejects excessive decoded pixel counts and invalid image data. The desktop request limit is 24 MiB and the image bound is 12 million pixels. Android documentation specifies a 23 MB total input limit and the same decoded pixel bound [5,7].
+
+Shared intensity statistics use grayscale values. This differs from a dedicated measurement experiment that can examine all RGB channel values. Selected operations introduce additional bounds: Region Growing and K-means analyze images with a maximum side of 512 pixels, while the teaching lossless coder allows maximum sides of 32, 64 or 128. Coordinates and recovery claims must refer to these analysis images [6].
+
+\subsection{Evaluation Inputs}
+For the fresh report experiments, the included sample is resized to 128 by 128 pixels with OpenCV INTER\_AREA interpolation. Every registered operation is invoked with default parameters, using the same image as a reference where required. Output existence, shape, uint8 representation and finite values are recorded. A separate lossless experiment uses the 32-pixel-side analysis setting. These bounded checks are reproducible demonstrations, not evidence of exhaustive behavior over all possible images.
+
+\begin{table}[htbp]\centering\small
+\caption{Evaluation materials and their roles}
+\begin{tabularx}{\textwidth}{XX}
+\toprule
+\textbf{Material} & \textbf{Role}\\\midrule
+Included sample image & Common input for fresh execution and statistical comparisons\\
+5 by 5 and 8 by 8 matrices & Exact histogram and equalization verification\\
+Course catalog & Chapter membership, topic references and presets\\
+Python tests and Android logs & Numerical, API and integration evidence\\
+Retained screenshots & Illustration of desktop and Android presentation\\
+\bottomrule\end{tabularx}\end{table}
+\section{Methods and Models Used}
+\subsection{Intensity and Histogram Measurements}
+For N grayscale pixels x(i), the mean is the sum of the intensities divided by N. Population variance is the average squared deviation from the mean. RMS contrast in the shared statistics routine is the population standard deviation. Michelson contrast is (maximum-minimum)/(maximum+minimum), with zero returned for an all-black image. These definitions make constant-image behavior finite and interpretable [5].
+
+For histogram counts h(k), cumulative counts C(k) are obtained by summing h from zero to k. The normalized classroom equalization uses s(k)=round(255*(C(k)-Cmin)/(N-Cmin)). In the supplied 8 by 8 matrix, N=64 and Cmin=1. Values below the occupied intensity range are clipped, and lookup-table indexing applies the mapping to every original pixel. A separate basic equalization example retains its own mapping convention [6].
+
+\subsection{Segmentation and Coding Evaluation}
+A segmentation result can be checked for valid dimensions and labels without claiming semantic accuracy. Known examples additionally verify local growth connectivity, marker construction and reproducible clustering. There is no manually annotated object dataset in this evaluation, so intersection over union, precision, recall and F1 are not reported.
+
+For lossless coding, the decisive correctness condition is decoded pixels equal encoded analysis pixels. Size accounting distinguishes raw grayscale bytes, coded payload bytes and exported JSON bytes. A payload compression ratio divides raw bytes by payload bytes; a file compression ratio divides raw bytes by total exported bytes. Metadata and base64 representation can make an export larger even when the coding payload is compact [5].
+
+\section{Proposed Approach}
+The common execution path begins with image acquisition and operation selection. The operation registry supplies the explanatory text, fields, defaults, ranges and reference requirement. Parameter validation converts numeric inputs, rejects non-finite or out-of-range values, enforces integral fields and checks odd filter kernels. The validated function returns a processed image and optional structured details. Presentation code then creates operation-specific figures, tables and export data [5].
+
+The desktop front end communicates with a local Flask process. Android replaces that transport with a direct Java-to-Python bridge through Chaquopy and bundles the required scientific packages. This preserves the image-processing concepts while allowing different interface implementations. The desktop page retains experiment history for the current session and supports using the latest result as the next input. Android retains the chosen image while users browse chapter filters and operation search [5,7].
+
+\begin{table}[htbp]\centering\small
+\caption{Logical processing stages}
+\begin{tabularx}{\textwidth}{XX}
+\toprule
+\textbf{Stage} & \textbf{Responsibility}\\\midrule
+Acquire & Decode selected image and normalize orientation and channel storage\\
+Select & Resolve registry entry, source references and parameter defaults\\
+Validate & Check type, bounds, finite values and operation constraints\\
+Execute & Run algorithm and return output with structured details\\
+Explain & Render figures, statistics, tables and Python examples\\
+Export & Save output image, figure or educational coding artifact\\
+\bottomrule\end{tabularx}\end{table}
+\section{Summary}
+The methodology keeps the course reference, configurable implementation, numerical result and display representation connected. Exact fixed examples establish selected calculations, while integration tests check that the broader workflow remains usable. The next chapter describes the modules and platform boundaries that implement this design.
+
+\end{spacing}

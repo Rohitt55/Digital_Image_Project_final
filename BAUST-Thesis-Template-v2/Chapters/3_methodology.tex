@@ -1,0 +1,99 @@
+\begin{spacing}{1.5}
+    
+\vspace{1cm}
+
+\textit{The methodology chapter explains exactly how you carried out your research: what data/materials you used, what methods/models/techniques you applied, and how you designed your approach. It should be detailed enough that someone else could reproduce your work. Replace all italicized instruction text in this chapter with your own writing, and delete this paragraph.}
+
+\section{Overview}
+
+\textit{Briefly introduce the overall approach taken in this thesis and outline what each section of this chapter covers.}
+
+% --------------------------------------------------------------------
+% FIGURE DEMO
+% Figures are captioned below the image, automatically numbered as
+% "Figure <chapter>.<n>: <caption text>" (e.g. Figure 3.1).
+% --------------------------------------------------------------------
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=4cm]{Figures/BAUSTlogo.png}
+  \captionsetup{font=small}
+  \caption[Sample figure used as a placeholder]{Sample figure used as a placeholder. Replace this image and caption with your own (e.g. a flowchart of your overall methodology).}
+  \label{fig:sample}
+\end{figure}
+
+A figure can be referenced in text using \texttt{\textbackslash ref\{\}}, for example see Figure~\ref{fig:sample}.
+
+\section{Data Collection and Preprocessing}\label{subsec1}
+
+\textit{Describe the data used in your research and how it was prepared. Use the subsections below as a guide; remove any that don't apply to your work (e.g. delete this subsection entirely if your thesis is not data-driven).}
+
+\subsection{Data Sources}
+
+\textit{Describe where your data came from: public datasets, sensors, surveys, web scraping, etc. Include size, format, and any licensing/access details.}
+
+\subsection{Preprocessing Steps}
+
+\textit{Describe cleaning, normalization, augmentation, or transformation steps applied to the raw data before use.}
+
+\subsection{Dataset Description}
+
+\textit{Summarize the final dataset: number of samples, classes/categories, splits (train/validation/test), and any relevant statistics.}
+
+% --------------------------------------------------------------------
+% TABLE DEMO (HORIZONTAL / RESEARCH-PAPER STYLE)
+% Uses booktabs for a clean, journal-style table. Caption appears
+% ABOVE the table, automatically numbered as "Table <chapter>.<n>".
+% --------------------------------------------------------------------
+\begin{table}[h]
+\centering
+\captionsetup{font=small}
+\caption{Sample horizontal table comparing model performance.}
+\label{tab:sample_horizontal}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Model} & \textbf{Accuracy (\%)} & \textbf{Precision (\%)} & \textbf{Recall (\%)} & \textbf{F1 Score (\%)} \\
+\midrule
+Model A & 0.00 & 0.00 & 0.00 & 0.00 \\
+Model B & 0.00 & 0.00 & 0.00 & 0.00 \\
+Model C & 0.00 & 0.00 & 0.00 & 0.00 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% --------------------------------------------------------------------
+% TABLE DEMO (VERTICAL / LANDSCAPE-ROTATED, RESEARCH-PAPER STYLE)
+% Use the 'sidewaystable' environment (from the 'rotating' package)
+% for wide tables that need to be rotated 90 degrees on the page.
+% --------------------------------------------------------------------
+\begin{sidewaystable}
+\centering
+\captionsetup{font=small}
+\caption{Sample vertical (rotated) table for wide content with many columns.}
+\label{tab:sample_vertical}
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+\textbf{Model} & \textbf{Accuracy (\%)} & \textbf{Loss} & \textbf{Precision (\%)} & \textbf{Recall (\%)} & \textbf{F1 Score (\%)} & \textbf{Params (M)} & \textbf{Inference Time (ms)} \\
+\midrule
+Model A & 0.00 & 0.0000 & 0.00 & 0.00 & 0.00 & 0.0 & 0.0 \\
+Model B & 0.00 & 0.0000 & 0.00 & 0.00 & 0.00 & 0.0 & 0.0 \\
+Model C & 0.00 & 0.0000 & 0.00 & 0.00 & 0.00 & 0.0 & 0.0 \\
+Model D & 0.00 & 0.0000 & 0.00 & 0.00 & 0.00 & 0.0 & 0.0 \\
+\bottomrule
+\end{tabular}
+\end{sidewaystable}
+
+A table can be referenced in text using \texttt{\textbackslash ref\{\}}, for example see Table~\ref{tab:sample_horizontal} and Table~\ref{tab:sample_vertical}.
+
+\section{Methods / Models Used}\label{subsec2}
+
+\textit{Describe the core methods, algorithms, or models used in your research. Explain the theory or working principle of each method, with equations where appropriate, and justify why these methods were chosen for your problem.}
+
+\section{Proposed Approach}\label{subsec3}
+
+\textit{Describe your own proposed approach, framework, or system in detail (the main methodological contribution of your thesis). Use diagrams, equations, and pseudocode as needed to make the approach clear and reproducible.}
+
+\section{Summary}
+
+\textit{Briefly summarize the methodology described in this chapter and how it leads into the Implementation chapter.}
+
+\end{spacing}

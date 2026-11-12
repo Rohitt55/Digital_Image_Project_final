@@ -1,0 +1,92 @@
+{
+  "input_sha256": "d40c57c7249091299c81ee05a82398750d0b8b9bee9521939d94b10a160e3e6f",
+  "analysis_dimensions": [
+    128,
+    128
+  ],
+  "metrics": [
+    [
+      "Grayscale",
+      "147.769",
+      "34.875",
+      "68",
+      "200"
+    ],
+    [
+      "Image negative",
+      "107.231",
+      "34.875",
+      "55",
+      "187"
+    ],
+    [
+      "Normalized equalization",
+      "133.617",
+      "78.757",
+      "0",
+      "255"
+    ],
+    [
+      "Adaptive equalization \u00b7 CLAHE",
+      "164.132",
+      "36.666",
+      "71",
+      "232"
+    ],
+    [
+      "Median filter",
+      "149.849",
+      "33.678",
+      "68",
+      "200"
+    ],
+    [
+      "Otsu segmentation",
+      "150.690",
+      "125.373",
+      "0",
+      "255"
+    ]
+  ],
+  "lossless_32_side": [
+    [
+      "RLE",
+      "1024",
+      "4425",
+      "6014",
+      "True"
+    ],
+    [
+      "Huffman",
+      "1024",
+      "792",
+      "3319",
+      "True"
+    ],
+    [
+      "Arithmetic",
+      "1024",
+      "789",
+      "1990",
+      "True"
+    ],
+    [
+      "LZW",
+      "1024",
+      "1152",
+      "1699",
+      "True"
+    ]
+  ],
+  "groups": {
+    "Color & intensity": 11,
+    "Geometry": 5,
+    "Histograms": 9,
+    "Filters & restoration": 8,
+    "Edges & segmentation": 11,
+    "Morphology": 1,
+    "Transforms & comparison": 6,
+    "Compression": 1,
+    "Fundamentals": 7
+  }
+}

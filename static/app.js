@@ -41,10 +41,13 @@ function clearResult() {
   resultData = null; afterStats = null;
   encodedArtifact = null; $('download-encoded').hidden = true;
   labFigure = null;
+  $('lab-caption').textContent = 'Run an operation to see its relevant plots and measurements.';
   $('lab-figure').hidden = true; $('lab-figure').removeAttribute('src');
   if ($('lab-figure-link').href.startsWith('blob:')) URL.revokeObjectURL($('lab-figure-link').href);
   $('lab-figure-link').hidden = true; $('lab-figure-link').removeAttribute('href');
   $('lab-empty').hidden = false; $('console-wrap').hidden = true; $('lab-console').textContent = '';
+  $('lab-tables').replaceChildren();
+  $('lab-layout-reference').hidden = true;
   $('result-image').hidden = true; $('result-empty').hidden = false;
   $('result-meta').textContent = 'No result yet'; $('result-label').textContent = 'OUTPUT';
   $('extra-details').replaceChildren();
@@ -172,6 +175,7 @@ async function run(event) {
     if (revision !== currentRevision) return;
     resultData = data.result; resultName = currentOp.id;
     encodedArtifact = data.artifact || null; $('download-encoded').hidden = !encodedArtifact;
+    $('download-encoded').textContent = currentOp.id === 'image_read_save' ? 'Save PNG copy' : 'Download encoded file';
     beforeStats = data.before; afterStats = data.after;
     $('result-image').src = resultData; $('result-image').hidden = false; $('result-empty').hidden = true;
     $('result-image').style.width = '100%'; $('result-image').style.height = '100%';
@@ -181,6 +185,8 @@ async function run(event) {
     renderStats(data.before, data.after, data.details.processing_ms); drawHistogram(); renderDetails(data.details);
     if (data.lab) {
       labFigure = data.lab.figure;
+      $('lab-caption').textContent = data.lab.caption;
+      $('lab-figure').alt = data.lab.caption;
       $('lab-figure').src = labFigure; $('lab-figure').hidden = false; $('lab-empty').hidden = true;
       // Blob URLs let the full-size figure open reliably in a separate tab.
       if ($('lab-figure-link').href.startsWith('blob:')) URL.revokeObjectURL($('lab-figure-link').href);
@@ -188,6 +194,13 @@ async function run(event) {
       $('lab-figure-link').href = URL.createObjectURL(new Blob([bytes], {type:'image/png'}));
       $('lab-figure-link').hidden = false;
       $('lab-console').textContent = data.lab.console; $('console-wrap').hidden = false;
+      renderLabTables(data.lab.tables || []);
+      const layoutReference = data.lab.layout_reference;
+      $('lab-layout-reference').hidden = !layoutReference;
+      if (layoutReference) {
+        $('lab-layout-reference').textContent = `Sample layout: ${layoutReference.source} · pages ${layoutReference.pages.join(', ')}`;
+        $('lab-layout-reference').href = layoutReference.url;
+      }
       $('tab-lab-output').click();
     }
     history.unshift({name:currentOp.name, input:inputFile.name, params, time:new Date().toLocaleTimeString(), ms:data.details.processing_ms, image:resultData});
@@ -195,6 +208,27 @@ async function run(event) {
     notify(`${currentOp.name} · ${data.details.processing_ms} ms`, true);
   } catch (error) { notify(requestError(error)); }
   finally { busy = false; controls(); }
+}
+function renderLabTables(tables) {
+  const target = $('lab-tables'); target.replaceChildren();
+  for (const item of tables) {
+    const heading = document.createElement('h4'); heading.textContent = item.title; target.append(heading);
+    const grid = document.createElement('div'); grid.className = 'lab-table-grid';
+    const chunkSize = item.rows.length > 20 ? Math.ceil(item.rows.length / 3) : Math.max(1, item.rows.length);
+    for (let start = 0; start < item.rows.length; start += chunkSize) {
+      const wrap = document.createElement('div'); wrap.className = 'lab-table-wrap';
+      const table = document.createElement('table');
+      const head = table.createTHead().insertRow();
+      for (const title of item.columns) { const cell = document.createElement('th'); cell.scope = 'col'; cell.textContent = title; head.append(cell); }
+      const body = table.createTBody();
+      for (const values of item.rows.slice(start, start + chunkSize)) {
+        const row = body.insertRow();
+        for (const value of values) row.insertCell().textContent = String(value);
+      }
+      wrap.append(table); grid.append(wrap);
+    }
+    target.append(grid);
+  }
 }
 function renderStats(before, after, ms) {
   const stats = $('stats'); stats.replaceChildren();

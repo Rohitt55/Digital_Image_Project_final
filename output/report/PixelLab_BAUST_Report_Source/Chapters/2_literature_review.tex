@@ -1,0 +1,31 @@
+\begin{spacing}{1.5}
+\section{Overview}
+The background for this engineering project is the supplied teaching collection: the BAUST course outline, sessional laboratories, lecture chapters and transform assignment. The review examines the concepts required by the implemented system and their implications for an interactive laboratory. It is a review of the provided course material rather than an exhaustive survey of published educational software [1]-[4].
+
+\section{Background Study}
+\subsection{Digital Representation and Spatial Enhancement}
+A digital image is represented by a finite array of sample values. Sampling controls spatial resolution, while quantization controls the available intensity levels. The fundamentals material motivates pixel matrices, neighborhood connectivity, interpolation and color representation. PixelLab exposes these ideas through matrix displays, sampling comparisons, indexed palettes and connectivity graphs [2,3].
+
+The enhancement material describes intensity mappings and histogram processing. A negative transforms an 8-bit intensity r to 255-r. Brightness and contrast apply a scaled offset followed by clipping. Histogram equalization derives a mapping from cumulative frequencies, while contrast stretching maps a selected intensity interval to a wider display range. These methods alter the presentation of an image but do not establish recovery of physically correct scene intensities [3].
+
+Global equalization uses a whole-image distribution. CLAHE instead works with local regions and limits contrast amplification. Their different behavior makes parameter controls and side-by-side displays useful. A visually stronger contrast is not automatically an improvement for every task, so the interface also presents distributions and measurements.
+
+\subsection{Color Processing and Transforms}
+The color materials introduce multiple representations of the same underlying image. OpenCV stores ordinary decoded color images in BGR channel order, whereas many explanations use RGB. HSI separates hue, saturation and intensity, with intensity defined as the average of normalized red, green and blue values. The implementation uses hue in degrees and saturation and intensity in the interval zero to one [6].
+
+The transform materials connect spatial image structure to frequency-domain descriptions. FFT is a computational method for obtaining the DFT; it is not a different image transform. A centered log-magnitude spectrum is useful for visualization, but it discards phase and applies display normalization. Therefore, the displayed spectrum is not an invertible storage representation. PixelLab provides an independent transform-and-inverse demonstration to assess reconstruction [4].
+
+\subsection{Segmentation and Morphological Processing}
+Thresholding assigns image values to foreground and background. A global threshold is simple to interpret; Otsu chooses a threshold from the intensity distribution; adaptive methods estimate a threshold from local neighborhoods. Region growing depends on a seed and an intensity tolerance. K-means partitions feature values into clusters. Marker-based Watershed uses markers and image structure to assign regions. The supplied second laboratory motivates these complementary demonstrations [2].
+
+Morphological erosion and dilation act on local neighborhoods through a structuring element. Opening combines erosion and dilation, while closing reverses that order. A morphological gradient highlights the difference between dilation and erosion. The project groups these related variants under one operation, making the effect of the method and kernel directly comparable [3].
+
+\subsection{Restoration and Compression}
+Restoration models the degradation process rather than merely changing visual appearance. Inverse filtering can amplify frequencies with weak transfer values. Wiener filtering regularizes inversion using an assumed noise-to-signal relationship. Demonstrating both methods on a known artificial degradation makes their sensitivity visible, but does not imply that an unknown real blur can be recovered reliably [3].
+
+The compression material distinguishes reversible coding from lossy approximation. JPEG trades image fidelity against encoded size. RLE, Huffman, arithmetic and LZW coding can reconstruct the pixel sequence they encode. In PixelLab, the lossless teaching operation encodes a bounded grayscale analysis image and stores decoding metadata in a JSON export. Exact recovery is relative to that analysis image, not to the original color upload [5].
+
+\section{Summary}
+The supplied material provides the mathematical and procedural basis for the experiments. The integration need addressed by PixelLab is to connect those concepts to consistent controls, numerical evidence, plots and inspectable examples across desktop and offline mobile use. The resulting contribution is assessed as implemented software and course coverage. Claims about educational superiority over other systems would require broader comparison and an independent user study.
+
+\end{spacing}

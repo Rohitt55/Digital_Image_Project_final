@@ -1,0 +1,37 @@
+plugins { id 'com.android.application'; id 'com.chaquo.python' }
+android {
+ namespace 'com.pixellab.dip'
+ compileSdk 36
+ defaultConfig {
+  applicationId 'com.pixellab.dip'
+  minSdk 24
+  targetSdk 36
+  versionCode 4
+  versionName '2.2-offline'
+  ndk { abiFilters 'arm64-v8a', 'x86_64' }
+ }
+ signingConfigs { debug { storeFile file('../keystore/debug.keystore'); storePassword 'android'; keyAlias 'androiddebugkey'; keyPassword 'android' } }
+ compileOptions { sourceCompatibility JavaVersion.VERSION_1_8; targetCompatibility JavaVersion.VERSION_1_8 }
+}
+
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+chaquopy {
+ defaultConfig {
+  version = '3.10'
+  buildPython file('../../.android-build/python/cpython-3.10.22-windows-x86_64-none/python.exe').absolutePath
+  extractPackages 'pixellab_engine'
+  pyc { src = false }
+  pip {
+   install 'numpy==1.23.3'
+   install 'scipy==1.8.1'
+   install 'matplotlib==3.6.0'
+   install 'opencv-python==4.5.1.48'
+   install 'Pillow==9.2.0'
+  }
+ }
+}
+
+if (project.hasProperty('deviceTest')) {
+ android.sourceSets.main.java.srcDir '../tests/device'
+ android.sourceSets.main.manifest.srcFile 'src/deviceTest/AndroidManifest.xml'
+}

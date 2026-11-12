@@ -61,3 +61,10 @@ h1{font-size:26px;font-weight:600;letter-spacing:0}.subtitle{font-size:13px;colo
 
 /* Keep disabled controls recognizable while preserving readable labels. */
 button:disabled{opacity:.6}
+
+.lab-tables h4 { margin: 20px 0 10px; }
+.lab-table-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.lab-table-wrap { overflow: auto; max-height: 480px; border: 1px solid #cbd5e1; }
+.lab-table-wrap table { width: 100%; border-collapse: collapse; font-size: 12px; font-variant-numeric: tabular-nums; }
+.lab-table-wrap th, .lab-table-wrap td { padding: 7px 6px; border: 1px solid #cbd5e1; text-align: right; }
+.lab-table-wrap th { position: sticky; top: 0; background: #edf2f7; color: #203450; font-weight: 600; white-space: normal; }

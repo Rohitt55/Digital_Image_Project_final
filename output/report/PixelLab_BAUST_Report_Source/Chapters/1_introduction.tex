@@ -1,0 +1,27 @@
+\begin{spacing}{1.5}
+\section{Overview}
+PixelLab is an interactive laboratory for studying digital image processing through visible, reproducible experiments. It brings image input, parameter selection, processed output, plots, numerical measurements and Python examples into one workflow. The system has a local desktop web interface and an Android implementation which executes the algorithms on the device. Its educational organization follows the supplied BAUST Digital Image Processing materials for CSE 4245 and the CSE 4246 sessional laboratories [1]-[4].
+
+The implemented contribution is an integration of established image processing methods with course references and two execution environments. It contains 59 registered operations and 86 catalog topics, together with standalone examples. Operations may contain several selectable methods; consequently, an operation count is not an algorithm count. The course catalog and registry are separate structures, allowing a topic to point to an operation and a suitable parameter preset [5].
+
+\section{Problem Statement}
+A learner working from lecture slides and independent scripts must repeatedly locate source files, prepare inputs, edit parameters and interpret plots. This introduces avoidable friction when comparing related operations. A browser interface improves access on a computer, but a phone interface connected to a remote or local server still depends on that server being available. The project addresses these workflow problems by placing practical experiments, explanations and course references behind a consistent interface, and by packaging the computational libraries inside an offline Android application.
+
+The engineering problem is to preserve meaningful algorithm behavior across desktop and mobile use while handling different image formats, constrained memory, parameter validity and result presentation. The work does not introduce a new segmentation or restoration algorithm. It implements and verifies an educational environment in which those established methods can be explored.
+
+\section{Objectives}
+The first objective is to expose the retained image processing operations through a common validated execution interface. The second is to connect experiments to the supplied chapter and sessional references. The third is to present numerical and visual results together, including operation-specific figures rather than a single generic plot. The fourth is to run the experiments offline on Android with bundled dependencies. The fifth is to verify numerical examples, export behavior, algorithm invariants and interface integration through automated checks [5]-[8].
+
+Success is assessed through concrete evidence: the registry inventory, topic references, execution checks, exact fixed-matrix calculations, compression round trips and retained platform test logs. Learning gains, examination performance and user satisfaction require a separate participant study and are outside the evaluation reported here.
+
+\section{Social Impact}
+An offline laboratory can support practice where network connectivity or access to a dedicated computer is limited. Local execution also allows learners to process images without uploading them to an external processing service. The likely beneficiaries are students and instructors who need quick demonstrations of intensity transformations, segmentation, coding and related topics. These are intended benefits; the project has not measured educational outcomes or deployment reach.
+
+Image ownership and consent remain relevant when students choose photographs. The included sample and classroom matrices are suitable starting points for experiments. The application is an educational tool; its segmentation and enhancement outputs do not establish suitability for medical, surveillance or other consequential decisions.
+
+\section{Issues Encountered}
+Several important distinctions shaped the implementation. Pixel similarity and histogram distribution matching are different tasks, even where a source heading is ambiguous. Encoded color-space channels are numerical representations and should not be mistaken for natural RGB displays. HSI examples must preserve the stated intensity definition, and inverse conversion must disclose clipping when values lie outside the RGB gamut [6].
+
+Mobile memory use requires limits on decoded images and on selected computationally expensive demonstrations. Course examples also need exact matrices, whereas uploaded-image operations use arbitrary user data. These two modes are retained explicitly. The final chapters discuss how those decisions affect interpretation of the results.
+
+\end{spacing}

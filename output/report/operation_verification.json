@@ -1,0 +1,614 @@
+[
+  {
+    "operation": "grayscale",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "negative",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "contrast",
+    "shape": [
+      128,
+      128,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "gamma",
+    "shape": [
+      128,
+      128,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "quantization",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "color_channel",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "pixel_matrix",
+    "shape": [
+      8,
+      8
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "stretch",
+    "shape": [
+      128,
+      128,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "histogram",
+    "shape": [
+      128,
+      128,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "equalize_basic",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "equalize",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "clahe",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "resize",
+    "shape": [
+      300,
+      400,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "crop",
+    "shape": [
+      103,
+      103,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "rotate",
+    "shape": [
+      128,
+      128,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "flip",
+    "shape": [
+      128,
+      128,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "mean",
+    "shape": [
+      128,
+      128,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "gaussian",
+    "shape": [
+      128,
+      128,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "median",
+    "shape": [
+      128,
+      128,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "bilateral",
+    "shape": [
+      128,
+      128,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "sharpen",
+    "shape": [
+      128,
+      128,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "sobel",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "prewitt",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "roberts",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "canny",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "threshold",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "otsu",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "adaptive",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "morphology",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "fft",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "idft",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "frequency_filter",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "matching",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "compression",
+    "shape": [
+      128,
+      128,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "log_transform",
+    "shape": [
+      128,
+      128,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "bit_planes",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "laplacian",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "dct",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "noise_models",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "inverse_wiener",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "lossless_coding",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "image_read_save",
+    "shape": [
+      128,
+      128,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "image_measurements",
+    "shape": [
+      128,
+      128,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "indexed_image",
+    "shape": [
+      4,
+      4,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "pixel_connectivity",
+    "shape": [
+      3,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "knn_interpolation",
+    "shape": [
+      3,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "color_spaces",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "rgb_to_hsi",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "hsi_to_rgb",
+    "shape": [
+      128,
+      128,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "adaptive_mean",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "watershed",
+    "shape": [
+      128,
+      128,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "region_growing",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "kmeans",
+    "shape": [
+      128,
+      128,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "histogram_matching",
+    "shape": [
+      128,
+      128
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "lab_histogram_matrix",
+    "shape": [
+      5,
+      5
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "lab_basic_equalization",
+    "shape": [
+      8,
+      8
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "lab_normalized_equalization",
+    "shape": [
+      8,
+      8
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "binary_matrix",
+    "shape": [
+      4,
+      4
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  },
+  {
+    "operation": "sampling",
+    "shape": [
+      1024,
+      1024,
+      3
+    ],
+    "dtype": "uint8",
+    "nonempty": true,
+    "finite": true
+  }
+]
